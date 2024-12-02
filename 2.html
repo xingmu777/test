@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    var a = prompt("请输入各种括号");
+    var is = 1;
+    console.log(judgeEff(a));
+    
+    function judgeEff(a){
+        for (var i=0;i<a.length;i++) {
+            if(a[i] === "(") {
+                if (a[i+1] === "]"||a[i+1] === "}") {
+                    return "括号不合法！";
+                    is = 0;
+                    break;
+                }
+            } else if(a[i] === "[") {
+                if (a[i+1] === ")"||a[i+1] === "}") {
+                    return "括号不合法！";
+                    is = 0;
+                    break;
+                }
+            } else if(a[i] === "{") {
+                if (a[i+1] === "]"||a[i+1] === ")") {
+                    return "括号不合法！";
+                    is = 0;
+                    break;
+                }
+            }
+        }
+        if (is == 1) {
+            return "括号合法！";
+        }
+    }
+</script>
+</html>

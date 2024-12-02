@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    var a = prompt("输入数组（1，2，3）：");
+    console.log(getFrequency(a));
+
+    function getFrequency(a){
+        var arr = a.split(",");
+        for(var i = 0;i<arr.length;i++){
+            arr[i]=Number(arr[i]);
+        }
+        var b = [];
+        var o = {};
+        for (var i = 0;i < arr.length;i++) {
+            var is = false;
+            for (var j = 0;j < b.length;j++) {
+                if (b[j] === arr[i]) {
+                    is = true;
+                    break;
+                }
+            }
+            if (!is) {
+                b.push(arr[i]);
+            }
+        }
+        for(var i = 0;i<b.length;i++){
+            o.key += b[i];
+            o[b[i]] = 0;
+        }
+        for(var i = 0;i<b.length;i++){
+            for(var j = 0;j<arr.length;j++){
+                if(arr[j]==b[i]){
+                    o[b[i]]++;
+                }
+            }
+        }
+        return o;
+    }
+</script>
+</html>

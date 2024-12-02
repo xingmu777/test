@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    var a = prompt("输入数组（1，2，3）：");
+    console.log("方法一：数组本身splice删掉重复：");
+    console.log(getRepeat_d(a));
+    console.log("方法二：新数组对比旧数组重复不添加：");
+    console.log(getRepeat_a(a));
+
+    function getRepeat_a(a){
+        var arr = a.split(",");
+        for(var i = 0;i<arr.length;i++){
+            arr[i]=Number(arr[i]);
+        }
+        var c = [];
+        for(var i = 0;i < arr.length;i++) {
+            if(c.indexOf(arr[i]) === -1) {
+                c.push(arr[i]);
+            }
+        }
+        return c;
+    }
+    function getRepeat_d(a){
+        var arr = a.split(",");
+        var b = [];
+        for(var i = 0;i<arr.length;i++){
+            arr[i]=Number(arr[i]);
+            b.push(arr[i]);
+        }
+        for (var i = 0;i < b.length;i++) {
+            for (var j = b.length;j >i;j--) {
+                if (b[i] === b[j]) {
+                    b.splice(j,1);
+                }
+            }
+        }
+        return b;
+    }
+</script>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    var a = "hello world";
+    var b = "world";
+    var c = "there";
+    console.log(getReplace(a,b,c));
+
+    function getReplace(a,b,c){
+        var arr = a.split(" ");
+        for(var i = 0;i<arr.length;i++){
+            if(arr[i]==b){
+                arr[i]=c;
+            }
+        }
+        return arr.join(" ");
+    }
+</script>
+</html>
