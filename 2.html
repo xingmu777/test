@@ -13,42 +13,116 @@
     var a = s.split("");
     console.log(judgeEff(a));
     
-    function judgeEff(a){
+    function judgeEff(a) {
+        var arr = [];
         for (var i=0;i<a.length;i++) {
-            if(a[i]=="("){
-                for (var j=a.length;j>i;j--) {
-                    if(a[j]==")"){
-                        a.splice(i,1);
-                        a.splice(j-1,1);
-                        console.log(a);
-                        i--;
-                    }
+            if(a[i]==="("||a[i]==="["||a[i]==="{") {
+                arr.push(a[i]);
+            } else if ((a[i]===")"||a[i]==="]"||a[i]==="}")&&arr.length!==0) {
+                var del = arr.pop();
+                if (a[i]===")"&&del!=="(") {
+                    return "括号不合法";
+                } else if (a[i]==="]"&&del!=="[") {
+                    return "括号不合法";
+                } else if (a[i]==="}"&&del!=="{") {
+                    return "括号不合法";
                 }
             }
-            if(a[i]=="["){
-                for (var j=a.length;j>i;j--) {
-                    if(a[j]=="]"){
-                        a.splice(i,1);
-                        a.splice(j-1,1);
-                        console.log(a);
-                        i--;
-                    }
-                }
-            }
-            if(a[i]=="{"){
-                for (var j=a.length;j>i;j--) {
-                    if(a[j]=="}"){
-                        a.splice(i,1);
-                        a.splice(j-1,1);
-                        console.log(a);
-                        i--;
-                    }
-                }
-            }
+            console.log(arr);
         }
-        if (a[0] == undefined) {
-            return "括号合法！";
-        } else return "括号不合法！";
+        if(arr.length===0) return "括号合法";
+        else return "括号不合法";
     }
+
+    // function judgeEff(a){
+    //     console.log(a);
+    //     var l=0,m=0,x=0;
+    //     for (var i=0;i<a.length;i++) {
+    //         if(a[i]==="(") {
+    //             if (a[i+1]==="]"||a[i+1]==="}"||a[i+1]===undefined) break;
+    //             else {
+    //                 var x1 = a.indexOf(")");
+    //                 var x2 = a.indexOf("]");
+    //                 var x3 = a.indexOf("}");
+    //                 if(x1===-1) x1+=99999;
+    //                 if(x2===-1) x2+=99999;
+    //                 if(x3===-1) x3+=99999;
+    //                 if(Math.min(x1,x2,x3)===x1&&a[x1+1]!=="{"&&a[x1+1]!=="["&&a[i+1]===undefined) {
+    //                     a.splice(i,x1+1);
+    //                     console.log(a);
+    //                     l++;
+    //                 } else {
+    //                     a.splice(i,1);
+    //                     a.splice(x1-1,1);
+    //                     console.log(a);
+    //                 }
+    //                 i--;
+    //             }
+    //         }
+    //         else if(a[i]==="[") {
+    //             if (a[i+1]===")"||a[i+1]==="}"||a[i+1]===undefined) break;
+    //             else {
+    //                 var x1 = a.indexOf(")");
+    //                 var x2 = a.indexOf("]");
+    //                 var x3 = a.indexOf("}");
+    //                 if(x1===-1) x1+=99999;
+    //                 if(x2===-1) x2+=99999;
+    //                 if(x3===-1) x3+=99999;
+    //                 if(Math.min(x1,x2,x3)===x2&&a[x2+1]!=="{"&&a[x2+1]!=="("&&a[i+1]===undefined) {
+    //                     a.splice(i,x2+1);
+    //                     console.log(a);
+    //                     m++;
+    //                 } else {
+    //                     a.splice(i,1);
+    //                     a.splice(x2-1,1);
+    //                     console.log(a);
+    //                 }
+    //                 i--;
+    //             }
+    //         }
+    //         else if(a[i]==="{") {
+    //             if (a[i+1]===")"||a[i+1]==="]"||a[i+1]===undefined) break
+    //             else {
+    //                 var x1 = a.indexOf(")");
+    //                 var x2 = a.indexOf("]");
+    //                 var x3 = a.indexOf("}");
+    //                 if(x1===-1) x1+=99999;
+    //                 if(x2===-1) x2+=99999;
+    //                 if(x3===-1) x3+=99999;
+    //                 if(Math.min(x1,x2,x3)===x3&&a[x3+1]!=="("&&a[x3+1]!=="["&&a[i+1]===undefined) {
+    //                     a.splice(i,x3+1);
+    //                     console.log(a);
+    //                     x++;
+    //                 } else {
+    //                     a.splice(i,1);
+    //                     a.splice(x3-1,1);
+    //                     console.log(a);
+    //                 }
+    //                 i--;
+    //             }
+    //         }
+    //     }
+    //     for(var i=0;i<l;i++){
+    //         var x1 = a.indexOf(")");
+    //         if(x1 == -1) x1+=99999;
+    //         a.splice(x1,1);
+    //         console.log(a);
+    //     }
+    //     for(var i=0;i<m;i++){
+    //         var x2 = a.indexOf("]");
+    //         if(x2 == -1) x2+=99999;
+    //         a.splice(x2,1);
+    //         console.log(a);
+    //     }
+    //     for(var i=0;i<x;i++){
+    //         var x3 = a.indexOf("}");
+    //         if(x3 == -1) x3+=99999;
+    //         a.splice(x3,1);
+    //         console.log(a);
+    //     }
+    //     if (a[0] === undefined) {
+    //         return "括号合法！";
+    //     } else return "括号不合法！";
+    // }
 </script>
 </html>
