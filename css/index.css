@@ -5,9 +5,11 @@
     Roboto, "Helvetica Neue", Arial, sans-serif;
 }
 /* 重要通知样式 */
-.Notice {
-    padding-left: 10px;
+.warp {
     background-color: #2188b6;
+}
+.Notice {
+    padding:0 10px;
     color: rgba(255,255,255,0.8);
 }
 
@@ -15,6 +17,13 @@
     .Notice {
         display: flex;
         justify-content: flex-start;
+    }
+    .nav button {
+        display: none;
+    }
+    .nav .navbar,
+    .nav .navbar-right {
+        display: flex;
     }
 }
 
@@ -30,62 +39,309 @@
 }
 
 /* 导航栏样式 */
-
 .nav {
+    height: 40px;
+    padding: 8px 16px;
     display: flex;
     justify-content: space-between;
 }
 
-.nav-logo {
-    width: 50px;
-    height: 50px;
+.nav-logo .logo {
+    height: 2.6rem;
+}
+
+.navbar {
+    line-height: 40px;
+    display: none;
+    justify-content: space-between;
+}
+
+.nav-item {
+    height: 20px;
+    margin: 0 5px;
+    position: relative;
+}
+
+.nav-link {
+    color: rgba(0, 0, 0, 0.6);
+}
+
+.nav-link:hover {
+    color: rgba(0, 0, 0, 0.7);
+}
+
+.navbar-right {
+    height: 30px;
+    line-height: 30px;
+    display: none;
+    justify-content: space-between;
 }
 
 .logo-primary {
     fill: #117cad;
 }
+
 .logo-secondary {
     fill: #fff;
 }
-button {
-    width: 50px;
-    height: 50px;
+
+.navbar-icon {
+    height: 1.5rem;
+    fill: rgba(0, 0, 0, 0.6);
+}
+
+.sr-only {
+    display: none;
+    position: absolute;
+    left: 20px;
+    top: 20px;
+}
+
+.discord:hover,
+.discord:hover ~.sr-only {
+    fill: rgba(0, 0, 0, 1);
+    color: rgba(0, 0, 0, 1);
+    display: block;
+}
+
+.twitter:hover,
+.twitter:hover ~.sr-only {
+    fill: rgba(0, 0, 0, 1);
+    color: rgba(0, 0, 0, 1);
+    display: block;
+}
+
+.facebook:hover,
+.facebook:hover ~.sr-only {
+    fill: rgba(0, 0, 0, 1);
+    color: rgba(0, 0, 0, 1);
+    display: block;
+}
+
+.github:hover,
+.github:hover ~.sr-only {
+    fill: rgba(0, 0, 0, 1);
+    color: rgba(0, 0, 0, 1);
+    display: block;
+}
+
+.nav button {
+    width: 2.5em;
+    height: 2em;
+    font-size: 1.25rem;
+    padding: 8px 12px;
     background: transparent no-repeat center center;
     background-image: url("../images/download.svg");
+    background-size: 24px 24px;
     border: 1px solid rgba(0, 0, 0, 0.1);
-    border-radius: 10px;
+    border-radius: 5px;
 }
 
 /* 工具样式 */
 .tool {
-    background-color: #2188b6;
+    width: 900px;
+    margin: 10px auto;
+    color: white;
 }
 
-.git.logo {
-    width: 20px;
+.tool-title {
+    font-size: 4em;
+}
+
+.tool-git {
+    display: flex;
+}
+
+.btn:hover {
+    color: #2188b6;
+    background-color: #fff;
+}
+
+.tool-git>div {
+    display: flex;
+}
+
+.tool-git>a {
+    display: block;
+    padding: 3px 10px;
+    font-size: 16px;
     height: 20px;
+    align-self: center;
+    border-radius: 4px;
+    background-color: #eee;
+    border: 1px solid #d5d5d5;
+    color: #333;
+}
+
+.tool-git>div>a {
+    text-align: center;
+    display: block;
+    margin-right: 20px;
+    padding: 15px 30px;
+    font-size: 1.2rem;
+    color: white;
+    font-weight: 700;
+    border: 2px solid transparent;
+    border-radius: .3rem;
+    background-color: transparent;
+    border-color: #1476a2;
+}
+
+.tool-git>a:nth-of-type(1):hover {
+    background-color: #ddd;
+}
+
+.tool-git>a:nth-of-type(2):hover {
+    color: #0366d6;
+}
+
+.tool-git>span {
+    display: block;
+    background-color: #2188b6;
+    align-self: center;
+    width: 0;
+    height: 0;
+    border-top: 5px solid transparent;
+    border-right: 5px solid white;
+    border-left: 5px solid transparent;
+    border-bottom: 5px solid transparent;
+}
+
+.git-logo {
+    height: 100%;
     vertical-align: middle;
 }
 
-.git-title {
-    vertical-align: middle;
+.mt-4 {
+    margin-top: 1.5rem;
+    padding-bottom: 1.5rem;
+}
+
+.mt-4>div {
+    line-height: 40px;
+}
+
+.mt-4 .navbar-text a {
+    text-decoration: underline;
+    color: #fff;
 }
 
 /* 优点样式 */
+.merit {
+    margin: 0 auto;
+    width: 900px;
+}
 
+.merit>div {
+    margin: 48px 0;
+}
+
+.merit-text h2 {
+    font-size: 2.8rem;
+    font-weight: 300;
+    color: #5a5a5a;
+    margin-bottom: 16px;
+}
+
+.merit-text p {
+    font-size: 1.3rem;
+    font-weight: 300;
+    color: #6d767d;
+}
+
+.merit-speed {
+    display: flex;
+    justify-content: space-between;
+}
+
+.merit-speed img {
+    height: 200px;
+}
+
+.merit-secure {
+    display: flex;
+    justify-content: space-between;
+}
+
+.merit-secure img {
+    height: 340px;
+}
+
+.merit-reliable {
+    display: flex;
+    justify-content: space-between;
+}
+
+.merit-reliable img {
+    height: 340px;
+}
 
 /* 快速样式 */
 .fast {
-    line-height: 120px;
-    margin: 0 auto;
+    width: 900px;
+    padding: 2rem 0;
+    margin: 0 40px;
+    display: flex;
+    color: white;
+    justify-content: space-between;
+}
+
+.fast-left {
+    font-size: 2.2rem;
+    font-weight: 800;
+    text-shadow: 5px 5px #1476a2;
 }
 
 .fast-right {
-    width: 200px;
+    text-align: center;
     display: block;
+    padding: 15px 30px;
+    font-size: 1.2rem;
+    color: white;
+    font-weight: 700;
+    border: 2px solid transparent;
+    border-radius: .3rem;
+    background-color: transparent;
+    border-color: #1476a2;
 }
 
 /* 主体样式 */
+.main .row {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
 
+.main .row>div {
+    width: 320px;
+    margin: 48px 0;
+}
+
+.main .row>div>h2 {
+    font-size: 32px;
+    color: #464a4c;
+    font-weight: 300;
+}
+
+.main .row>div>p {
+    color: #6d767d;
+    font-weight: 300;
+    font-size: 1.1rem;
+}
 
 /* 页脚样式 */
+.footer {
+    width: 900px;
+    display: flex;
+    justify-content: space-between;
+    margin: 60px 40px;
+}
+
+.footer a {
+    color: #117cad;
+}
+
+.footer a:hover {
+    color: #0a4a67;
+    text-decoration: underline;
+}

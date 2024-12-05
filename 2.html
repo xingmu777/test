@@ -9,35 +9,46 @@
     
 </body>
 <script>
-    var a = prompt("请输入各种括号");
-    var is = 1;
+    var s = prompt("请输入各种括号");
+    var a = s.split("");
     console.log(judgeEff(a));
     
     function judgeEff(a){
         for (var i=0;i<a.length;i++) {
-            if(a[i] === "(") {
-                if (a[i+1] === "]"||a[i+1] === "}") {
-                    return "括号不合法！";
-                    is = 0;
-                    break;
+            if(a[i]=="("){
+                for (var j=a.length;j>i;j--) {
+                    if(a[j]==")"){
+                        a.splice(i,1);
+                        a.splice(j-1,1);
+                        console.log(a);
+                        i--;
+                    }
                 }
-            } else if(a[i] === "[") {
-                if (a[i+1] === ")"||a[i+1] === "}") {
-                    return "括号不合法！";
-                    is = 0;
-                    break;
+            }
+            if(a[i]=="["){
+                for (var j=a.length;j>i;j--) {
+                    if(a[j]=="]"){
+                        a.splice(i,1);
+                        a.splice(j-1,1);
+                        console.log(a);
+                        i--;
+                    }
                 }
-            } else if(a[i] === "{") {
-                if (a[i+1] === "]"||a[i+1] === ")") {
-                    return "括号不合法！";
-                    is = 0;
-                    break;
+            }
+            if(a[i]=="{"){
+                for (var j=a.length;j>i;j--) {
+                    if(a[j]=="}"){
+                        a.splice(i,1);
+                        a.splice(j-1,1);
+                        console.log(a);
+                        i--;
+                    }
                 }
             }
         }
-        if (is == 1) {
+        if (a[0] == undefined) {
             return "括号合法！";
-        }
+        } else return "括号不合法！";
     }
 </script>
 </html>
